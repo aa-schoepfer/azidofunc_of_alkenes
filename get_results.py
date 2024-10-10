@@ -1,3 +1,4 @@
+import pickle
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as pl
@@ -44,6 +45,11 @@ fps = [
     )
 ]
 
+# Save fignerprints 
+# fps_file = open("comb_fps.pkl", 'wb')
+# pickle.dump(fps, fps_file)
+# fps_file.close()
+
 # Get costs
 costs = np.array(
     [
@@ -89,6 +95,11 @@ combi["pc2"] = pca[:, 1]
 combi["cost_nu"] = costs_nu
 combi["cost_el"] = costs_el
 combi["cost"] = costs
+
+# Save model, around 10GB 
+# umap_file = open("umap_model.pkl", 'wb')
+# pickle.dump(pipe, umap_file)
+# umap_file.close()
 
 # Cluster reduced space
 clu = make_pipeline(
