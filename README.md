@@ -24,4 +24,4 @@ This process takes around 6h on an Intel® Core™ i7-9700K CPU @ 3.60GHz × 8.
 ```bash
 python test/test_reproducibilty.py
 ```
-If "Same results." is returned, the selected exerpiments match the one from the publication.  
+If `Same results.` is returned, the selected exerpiments match the one from the publication.  

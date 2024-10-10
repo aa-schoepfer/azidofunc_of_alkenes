@@ -167,8 +167,8 @@ top10.copy()[
 fig, ax = pl.subplots(figsize=(6, 6))
 
 ax.scatter(pca[:, 0], pca[:, 1], c=labels, cmap=custom_cmap, s=20)
-ax.scatter(centers[:, 0], centers[:, 1], c="#f39869", label="Center", s=20)
-ax.scatter(top10["pc1"], top10["pc2"], c="#ff0000", label="Selection", s=20)
+ax.scatter(centers[:, 0], centers[:, 1], c="#ff0000", label="Center", s=20)
+ax.scatter(top10["pc1"], top10["pc2"], c="#b51f1f", label="Selection", s=20)
 
 ax.set_xticks([])
 ax.set_yticks([])
@@ -182,5 +182,13 @@ ax.set_ylabel("UMAP 2")
 ax.legend()
 
 pl.savefig("umap_c15_pp_v2.png", dpi=300, bbox_inches="tight")
+
+exps = open('exp_prod_smiles.smi').read().splitlines() # Rerported reactions from main scope
+ex_fps = np.array([np.asarray(fpgen.GetFingerprint(Chem.MolFromSmiles(ex))) for ex in exps])
+ex_pca = pipe.transform(ex_fps)
+
+# Add experiments from main scope on the map
+# ax.scatter(ex_pca[:,0],ex_pca[:,1], c="#f39869", label="Selection", s=40)
+# pl.savefig("umap_c15_pp_v3.png", dpi=300, bbox_inches="tight")
 
 print("Done.")
