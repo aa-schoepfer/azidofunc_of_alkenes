@@ -183,7 +183,7 @@ ax.legend()
 
 pl.savefig("umap_c15_pp_v2.png", dpi=300, bbox_inches="tight")
 
-exps = open('exp_prod_smiles.smi').read().splitlines() # Rerported reactions from main scope
+exps = open('main_scope_smiles.smi').read().splitlines() # Rerported reactions from main scope
 ex_fps = np.array([np.asarray(fpgen.GetFingerprint(Chem.MolFromSmiles(ex))) for ex in exps])
 ex_pca = pipe.transform(ex_fps)
 
